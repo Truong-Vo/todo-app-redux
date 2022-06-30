@@ -38,12 +38,20 @@ export default function TodoList() {
   const handlePriorityChange = (value) => {
     setPriority(value)
   }
+
+  const handleEnter = (e) => {
+    if (e.key === 'Enter') {
+      handleButtononClick()
+    }
+  }
+
   return (
     <Row style={{ height: 'calc(100% - 40px)' }}>
       <Col span={24} style={{ height: 'calc(100% - 40px)', overflowY: 'auto' }}>
-        {todoList.map((todo, id) => (
+        {todoList.map((todo) => (
           <Todo
-            key={id}
+            key={todo.id}
+            id={todo.id}
             name={todo.name}
             priority={todo.priority}
             completed={todo.completed}
@@ -56,11 +64,13 @@ export default function TodoList() {
             ref={todoInput}
             value={todoName}
             onChange={handleInputChange}
+            onKeyDown={handleEnter}
           />
           <Select
             defaultValue="Medium"
             value={priority}
             onChange={handlePriorityChange}
+            onKeyDown={handleEnter}
           >
             <Select.Option value="High" label="High">
               <Tag color="red">High</Tag>
