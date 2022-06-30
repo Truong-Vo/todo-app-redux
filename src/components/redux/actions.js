@@ -19,3 +19,17 @@ export const statusFilter = (status) => {
     payload: status,
   }
 }
+
+export const priorityFilterChange = (priorities) => {
+  return {
+    type: 'filters/priorityFilterChange',
+    payload: priorities,
+  }
+}
+
+export const toggleTodoStatus = (todoId) => {
+  return {
+    type: 'todoList/toggleTodoStatus',
+    payload: todoId,
+  }
+}
