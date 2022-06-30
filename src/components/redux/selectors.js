@@ -19,7 +19,7 @@ export const todosRemainingSelector = createSelector(
   filtersSelector,
   (todoList, searchText, status) => {
     return todoList.filter((todo) => {
-      return todo.name.includes(searchText) && todo.completed.includes(status)
+      return todo.name.includes(searchText)
     })
   }
 )
